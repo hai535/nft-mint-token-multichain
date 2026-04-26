@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@rainbow-me/rainbowkit/styles.css";
+@import "@solana/wallet-adapter-react-ui/styles.css";
+@import "@mysten/dapp-kit/dist/index.css";
+
+html, body { background: #0b0b12; color: #f4f4f5; }

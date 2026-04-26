@@ -13,9 +13,16 @@ solana/test-ledger/
 # Sui
 sui/build/
 
+# Frontend / Next.js
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/next-env.d.ts
+
 # General
 .env
 .env.*
+!**/.env.example
 *.log
 .DS_Store
 node_modules/

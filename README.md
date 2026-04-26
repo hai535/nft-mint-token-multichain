@@ -554,8 +554,30 @@ sui client call --package $PKG --module mint_nft --function mint \
 
 ---
 
-## 6. 下一步建议
+## 6. 前端
+
+`frontend/` 是 Next.js 14 (App Router) + Tailwind 的多链 mint 页：
+
+| 生态 | SDK |
+| --- | --- |
+| EVM (ETH / BSC / Base) | `wagmi` + `viem` + RainbowKit |
+| Solana | `@solana/wallet-adapter-*` |
+| Sui | `@mysten/dapp-kit` |
+
+```bash
+cd frontend
+cp .env.example .env.local      # 填入合约地址 + WalletConnect projectId
+npm install
+npm run dev                      # http://localhost:3000
+```
+
+部署合约后：
+- EVM：把 `MintNFT` 地址填进 `NEXT_PUBLIC_NFT_ETH/BSC/BASE`
+- Solana：`anchor build` → 把 program id 填进 `NEXT_PUBLIC_SOL_PROGRAM_ID`，并把 IDL 复制到 `frontend/lib/idl.ts`
+- Sui：把 package id 和 shared `Drop` 对象 id 填进 `NEXT_PUBLIC_SUI_*`
+
+## 7. 下一步建议
 1. 先把 EVM 一份代码跑通（ETH testnet → BSC testnet → Base testnet），三链共用。
 2. Solana 单独做一套，测试 Devnet。
 3. Sui 单独做一套，测试 Testnet。
-4. 前端用一套统一抽象层（chain adapter）封装 mint 调用，避免 5 套分叉。
+4. 把合约地址填进 `frontend/.env.local`，前端就能直接调。
