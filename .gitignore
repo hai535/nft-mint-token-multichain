@@ -1,0 +1,21 @@
+# EVM / Foundry
+evm/out/
+evm/cache/
+evm/broadcast/
+evm/lib/
+
+# Solana / Anchor
+solana/target/
+solana/node_modules/
+solana/.anchor/
+solana/test-ledger/
+
+# Sui
+sui/build/
+
+# General
+.env
+.env.*
+*.log
+.DS_Store
+node_modules/
